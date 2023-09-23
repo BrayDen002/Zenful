@@ -1,0 +1,49 @@
+{{!-- <main> --}}
+  <div class="prompt">
+    <form id="form" method="POST" action="/users/register" enctype="application/x-www-form-urlencoded">
+      <fieldset id="mids">
+        <label class="lighter" for="username">USERNAME</label>
+        <input id="username" required="" type="text" name="username" />
+
+        <label class="lighter" for="email">EMAIL</label>
+        <input required="" type="email" name="email" />
+
+        <label class="lighter" for="password">PASSWORD</label>
+        <input 
+          id="password"
+          required=""
+          type="password"
+          name="password"
+        />
+
+        <label class="lighter" for="confirmPassword">CONFIRM PASSWORD</label>
+        <input
+          id="password1"
+          required=""
+          type="password"
+          name="confirmPassword"
+        />
+        <label class="lighter" id="checks"
+        ><input
+          type="checkbox"
+          name="confirmAge"
+          value="value"
+          required=""
+        />       At least 13 years old</label
+      >
+      <label class="lighter" id="checks"
+        ><input
+          type="checkbox"
+          name="acceptTOS"
+          value="value"
+          required=""
+        />         Terms and conditions</label
+      >
+      <button id="sub" type="submit" onclick="formValidation()">
+        Submit
+      </button>
+      <button id="cancel" type="reset">Cancel</button>
+      </fieldset>
+    </form>
+  </div>
+{{!-- </main> --}}

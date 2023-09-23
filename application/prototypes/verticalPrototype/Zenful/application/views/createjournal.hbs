@@ -1,0 +1,16 @@
+<main>
+  <div>
+    <form action="/posts/createPost" method="POST" enctype="multipart/form-data">
+      {{!-- <fieldset id="mids"> --}}
+        <fieldset class="prompt">
+        <label class="lighter" for="title">TITLE</label>
+        <input type="text" name="title" id="title" required />
+        <label class="lighter" for="description">ENTRY</label>
+        {{!-- <input type="text" name="description" style="padding-bottom: 200px;" required> --}}
+       <br/>
+       <textarea id="description" name="description" rows="10" cols="70" required></textarea>
+        <input id="sub" type="submit" value="SAVE" />
+      </fieldset>
+    </form>
+  </div>
+</main>

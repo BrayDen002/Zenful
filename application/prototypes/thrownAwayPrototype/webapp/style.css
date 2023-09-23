@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+}
+
+.member-group{
+    display: grid;
+    grid-auto-flow: row;
+    width: 150px;
+    grid-row-gap: 10px;
+    text-align: center;
+    position: absolute;
+    cursor: pointer;
+}
+.member-1{
+    border-style: solid;
+}
+.member-2{
+    border-style: solid;
+}
+.member-3{
+    border-style: solid;
+}
+.member-4{
+    border-style: solid;
+}
+.member-5{
+    border-style: solid;
+}
+.member-6{
+    border-style: solid;
+}

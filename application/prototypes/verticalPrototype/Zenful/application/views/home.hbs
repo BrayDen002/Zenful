@@ -1,0 +1,8 @@
+<main id="homepage">
+    <p class="homepage-info">Welcome to Zenful—A site where you can create your personalized journals!</p>
+    {{#if logged}}
+    <a href="/createjournal"><button class="homepage-button">Start Journaling</button></a>
+    {{else}}
+    <a href="/registration"><button class="homepage-button">Start Your Journey</button></a>
+    {{/if}}
+</main> 

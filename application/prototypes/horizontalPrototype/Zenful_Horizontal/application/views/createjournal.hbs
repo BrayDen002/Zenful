@@ -1,0 +1,47 @@
+<main>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+  <div>
+    <form action="/journals/createPost" method="POST" enctype="multipart/form-data">
+      {{!-- <fieldset id="mids"> --}}
+        <fieldset class="prompt">
+        <label class="lighter" for="title">TITLE</label>
+        <input type="text" name="title" id="title" required />
+        <label class="lighter" for="description">ENTRY</label>
+        {{!-- <input type="text" name="description" style="padding-bottom: 200px;" required> --}}
+       <br/>
+       <textarea id="description" name="description" rows="10" cols="70" required></textarea>
+        <input id="sub" type="submit" value="SAVE" />
+
+        
+      </fieldset>
+    </form>
+    <div class="player">
+    <div class="details">
+      <div class="now-playing"></div>
+      <div class="track-art"></div>
+      <div class="track-name">Track Name</div>
+      <div class="track-artist">Track Artist</div>
+    </div>
+    <div class="buttons">
+      <div class="prev-track" onclick="prevTrack()"><i class="fa fa-step-backward fa-2x"></i></div>
+      <div class="playpause-track" onclick="playpauseTrack()"><i class="fa fa-play-circle fa-5x"></i></div>
+      <div class="next-track" onclick="nextTrack()"><i class="fa fa-step-forward fa-2x"></i></div>
+    </div>
+    <div class="slider_container">
+      <div class="current-time">00:00</div>
+      <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+      <div class="total-duration">00:00</div>
+    </div>
+    <div class="slider_container">
+      <i class="fa fa-volume-down"></i>
+      <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+      <i class="fa fa-volume-up"></i>
+    </div>
+  </div>
+  <script src="../public/js/music.js"></script>
+    {{!-- <audio autoplay="autoplay" controls="controls">
+     <source src="https://www.youtube.com/watch?v=zR6D5o5bIdU&list=PLeP7OZvLMPPfgWw8kHGZzPNhurUBbTbz3" />      --}}
+ </audio>
+  </div>
+</main>

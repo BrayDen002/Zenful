@@ -1,0 +1,1 @@
+All your code for the beta prototype of your software product must be hosted in this directory. 

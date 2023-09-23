@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+*{
+  font-size: large;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  color: #5D5B4D;
+}
+
+:root {
+  --main-radius: 5px;
+  --main-padding: 5px;
+}
+.layout {
+  display: grid;
+  height: 100vh;
+  overflow: auto;
+  grid-template-columns: 10% 90%;
+  grid-template-rows: 7.5% 85% 7.5%;
+  font-family: fantasy;
+  font-size: 12px;
+  font-weight: 800;
+  /*text-transform: uppercase;*/
+  text-align: center;
+  grid-template-areas:
+    "logo nav"
+    "sidebar main"
+    "footer footer";
+    background-color: #CDCFC0;
+}
+
+nav {
+  grid-area: nav;
+}
+
+main {
+  background-image: url(../images/ZenfulFlowerHome.png);
+  filter: saturate(65%);
+  background-size: 100% 100%; /* Set the background image to cover the entire container */
+  background-position: center;
+  background-repeat: no-repeat;
+  /* border: 2px solid #fbfafa; */
+  grid-area: main;
+  margin-bottom: 80px;
+  /* box-shadow: 0px 0px 4px 4px rgb(39, 39, 39); */
+}
+
+main>*{
+  filter:none;
+}
+main[id="homepage"]{
+  filter: none;
+}
+
+
+#sidebar:hover {
+  width: 100%;
+}
+
+ul li:hover a{
+  margin-left: 5%;
+}
+
+#sidebar {
+  grid-area: sidebar;
+  /* width: 0%; */
+  transition: 3s;
+}
+
+#sidebar a{
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 19px;
+  box-sizing: border-box;
+  transition: .5s;
+}
+
+#sidebar a:hover {
+  width: 100%;
+  color: 	#fbfafa;
+  border-top: 1px solid 	#fbfafa;
+  border-bottom: 1px solid #fbfafa
+}
+
+#sidebar a:hover:active {
+  background-color: #5D5B4D;
+}
+
+#exp {
+  margin-top: 10px;
+  /*color: #fbfafa;*/
+  font-size: 21px;
+}
+
+footer {
+  background: #8b715a;
+  grid-area: footer;
+  padding-top: .2em;
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr 6fr; */
+  text-align: left;
+  font-weight: 500;
+  font-family: 'Times New Roman', Times, serif;
+  padding-bottom: 30px;
+
+}
+footer>div{
+  margin-left: 50px;
+}
+
+
+#title {
+  /* background: #CDCFC0; */
+  grid-area: nav;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-areas: 
+    "title search";
+  height: 10%;
+}
+.search {
+  width: 100%;
+  padding: .5em;
+  grid-area: search;
+}
+#name {
+  color: #fbfafa;
+  font-size: 40px;
+  font-family: fantasy;
+  grid-area: title;
+}
+
+#HomePhoto {
+  object-fit: contain;
+}
+
+#logoP {
+  max-width: 100%;
+  max-height: 90%;
+  object-fit: contain;
+  margin: 5%;
+  background: #CDCFC0;
+  border-radius: 25%;
+}
+#logo {
+  grid-area: logo;
+}
+
+#mids {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #f0d4bd;
+  margin: 2%;
+  border: none;
+}
+.mids-sp-photo {
+  height: auto;
+  max-height: 90%;
+  gap: 10px;
+  background-color: rgb(250, 247, 247);
+}
+
+.mids-photos {
+  display: grid;
+  gap: .2rem .2rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
+  padding-bottom: 50px;
+  padding-top: .35em;
+  background-color: black;
+  overflow: auto;
+}
+.lighter {
+  color: black;
+  border: none;
+  margin: 16px 16px 16px 16px;
+}
+
+legend {
+  border: 2px solid #eee;
+  box-shadow: 4px 4px 4px rgb(0, 0, 0);
+  background-color: #eee;
+}
+fieldset {
+  border: 2px solid rgb(99, 99, 99);
+  /* box-shadow: 4px 4px 4px rgb(0, 0, 0); */
+}
+
+
+
+.prompt {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 500;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 50px;
+  background-color: #f0d4bd;
+  padding: 20px;
+  padding-left: 10px;
+  padding-right: 35px;
+  /* box-shadow: 10px 10px 5px grey; */
+  border-radius: 25px;
+}
+
+input {
+  padding: 6px;
+  width: 100%;
+  margin: 12px 12px 12px 12px;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+  width: auto;
+}
+
+
+
+#sBarTitle {
+  font-size: 4px; 
+}
+
+
+#sub {
+  color: rgb(0, 0, 0);
+  background-color: #fbfafa;
+}
+
+#cancel{
+  background-color: white;
+  color: black;
+}
+
+#logoP:hover #exp {
+  color: transparent
+}
+
+#fakeI {
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 4px 4px 4px rgb(0, 0, 0);
+  margin: 5px;
+}
+
+.vp-page {
+  background-image: url("https://timvandevall.com/wp-content/uploads/edd/yellow-lined-paper-portrait-350.jpg");
+  padding: 15px;
+  height: 100%;
+  margin: auto 80px;
+}
+
+.vp-spaced {
+  margin: .2em;
+  max-height: 75%;
+}
+#vp-title {
+  padding-top: .2em;
+  font-size: larger;
+  background-color: #8b715a;
+  color: beige;
+}
+#vp-author {
+  padding-top: .1em;
+}
+#vp-date {
+  font-size: xx-small;
+}
+#vp-description {
+  overflow: auto;
+}
+
+textarea {
+  resize: none;
+}
+
+#description{
+  margin: 5px;
+}
+
+#flash-message {
+  text-align: center;
+  color: black(0, 0, 0);
+  background-color: white;
+  padding: 10px;
+  /*animation-name: fadeout;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-delay: 4s;*/
+}
+#flash-message > div {
+  text-align: center;
+}
+
+@keyframes fadeout {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+#checks {
+  border: 1px solid transparent; 
+}
+
+i {
+  margin: 3px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 186px 150px;
+  border: .0625rem solid rgb(114, 72, 30);
+  border-radius: .25rem;
+  box-shadow: 0 2px 2px rgb(114, 72, 30);
+}
+
+.card-title {
+  color: rgb(196, 185, 195);
+  margin-bottom: .1rem;
+  margin-top: 0;
+  padding-top: .1rem;
+  height: 22.5%;
+}
+.card-body {
+  grid-area: 2 / 1 / 3 / 2;
+  float: right;
+  padding: .75rem;
+  /* background-color: rgb(114, 72, 30); */
+  border-radius: 0 0 .2rem .2rem;
+}
+.card-text {
+  color: rgb(0, 0, 0);
+  font-size: smaller;
+  height: 65%;
+  overflow: auto;
+}
+
+.anchor-buttons {
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  line-height: 2rem;
+  border: .0625rem solid rgb(0, 0, 0);
+  background-color:rgb(114, 72, 30);
+  border-radius: .25rem;
+  font-weight: bold;
+  font-size: larger;
+  padding-left: .25rem;
+  padding-right: .25rem;
+}
+.anchor-buttons:hover {
+  box-shadow: none;
+  padding: 0;
+  color: rgb(114, 72, 30);
+  background-color: rgb(159, 114, 155);
+  padding-left: .25rem;
+  padding-right: .25rem;
+}
+
+#search-button{
+  background-color: #fbfafa;
+  width: 25px;
+  padding-right: .4em;
+  border-radius: 25%;
+  border: none;
+  cursor: pointer;
+}
+#search-text {
+  max-width: 100px;
+}
+.homepage-button {
+  position: fixed;
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%); 
+  border: none;
+  background-color: white;
+  padding: 20px 20px;
+  border-radius: 15px;
+  font-family: fantasy;
+  box-shadow: 0px 0px 2px 2px #5D5B4D;
+}
+
+.homepage-button:hover {
+  background-color: #5D5B4D;
+  color: white;
+  transition-timing-function: ease-in;
+  transition: 0.8s;
+  cursor: pointer;
+}
+
+.homepage-info {
+  position: fixed;
+  top: 50;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 25px;
+  color: white;
+  padding: 5px;
+  background-color: #8b715a;
+  border-radius: 15px;
+  max-width: 1100px;
+  width: 90%;
+}
+
+
+#checkme {
+  color: black;
+}
+
+div[id*='post'] {
+  /* background: url('https://media.istockphoto.com/id/172168250/photo/portrait-of-a-legal-pad-taking-up-the-entire-frame.jpg?s=612x612&w=0&k=20&c=wVBvgUKsMyBUggb8KH9lv7WKNz4DLBNBNCcBMa3eX_g='); */
+  background-color: rgb(114, 72, 30);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div[id*='post'] > div {
+  height: 70%;
+  width: 70%;
+}
+
+/*contact page*/
+.contact-page {
+  background-image: url(../images/flower.png);
+  margin: 50px;
+  padding: 20px;
+}
+.contact-heading {
+  font-size: 36px;
+  color: pink;
+}
+.contact-paragraph {
+  color: white;
+}
+.contact-div {
+  margin-top: 200px;
+}
+.contact-div > i {
+  margin: 10px;
+  color: pink;
+}
+.contactwhite {
+  color: white;
+}
+.contact-information {
+  margin-top: 150px;
+  color: pink;
+}
+.guest-box {
+  background-image: url(../images/guestimages.png);
+  height: 550px;
+  width: 800px;
+  margin: 50px auto;
+}
+.guestheading {
+  font-size: 26px;
+}
+
+/* Music Styling */
+.player {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+ 
+.details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+/* Changing the font sizes to suitable ones */
+.now-playing {
+  font-size: 0.5rem;
+}
+ 
+.track-name {
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.626);
+}
+ 
+.track-artist {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.626);
+}
+ 
+/* Using flex with the row direction to
+   align items in a horizontal direction */
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+ 
+.playpause-track,
+.prev-track,
+.next-track {
+  padding: 25px;
+  opacity: 0.8;
+  /* Smoothly transition the opacity */
+  transition: opacity .2s;
+}
+ 
+/* Change the opacity when mouse is hovered */
+.playpause-track:hover,
+.prev-track:hover,
+.next-track:hover {
+  opacity: 1.0;
+}
+ 
+/* Define the slider width so that it scales properly */
+.slider_container {
+  width: 75%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+/* Modify the appearance of the slider */
+.seek_slider, .volume_slider {
+  height: 1px;
+  background: black;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+ 
+/* Modify the appearance of the slider thumb */
+.seek_slider::-webkit-slider-thumb,
+.volume_slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: black;
+  cursor: pointer;
+  border-radius: 50%;
+}
+ 
+/* Change the opacity when mouse is hovered */
+.seek_slider:hover,
+.volume_slider:hover {
+  opacity: 1.0;
+}
+ 
+.seek_slider {
+  width: 60%;
+}
+ 
+.volume_slider {
+  width: 30%;
+}
+ 
+/* Change the mouse cursor to a pointer
+   when hovered over */
+i.fa-play-circle,
+i.fa-pause-circle,
+i.fa-step-forward,
+i.fa-step-backward {
+  cursor: pointer;
+}

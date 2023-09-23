@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zenful</title>
+    <link rel="icon" href="/public/favicon.ico" sizes="70x70" type="image/ico">
+    <link rel="stylesheet" href="/public/stylesheets/style.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/public/js/frontendjs.js"></script>
+  </head>
+  <body>
+    {{#if (emptyObject messages)}}
+    {{> flashmessage}}
+    {{/if}}
+    <div class="layout">
+      {{> logo}}
+      {{> banner}}
+      {{> sidebar}}
+      {{{body}}}
+      {{> footer}}
+    </div>
+
+    {{#if logged}}
+    <script>
+      let ele = document.getElementById('logout-button');
+      if(ele) {
+        ele.onclick = (even) => {
+          fetch('/users/logout',{
+            method:"POST"
+          })
+          .then((data) => {
+            location.replace('/');
+          })
+        }
+      }
+    </script>
+    {{/if}}
+  </body>
+</html>

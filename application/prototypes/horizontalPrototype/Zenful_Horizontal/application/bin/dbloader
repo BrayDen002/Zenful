@@ -1,0 +1,140 @@
+"use strict";
+const mysql = require("mysql2/promise");
+
+function displayWarningMessage(warning) {
+  switch (warning.Code) {
+    case 1007:
+      console.log(`Skipping Database Creation --> ${warning.Message}`);
+      break;
+    case 1050:
+      console.log(`Skipping Table Creation --> ${warning.Message}`);
+      break;
+  }
+}
+
+async function getConnection() {
+  return await mysql.createConnection({
+    host: "localhost",
+    //TODO make sure to change to the user you want to use
+    user: "root", //Your DB username
+    //TODO make sure to change to the correct password for your user.
+    password: "1234", //Your DB password
+  });
+}
+
+async function makeDatabase(connection) {
+  //TODO make sure to change yourdbnamehere
+  const [result, _] = await connection.query(
+    "CREATE DATABASE IF NOT EXISTS zenful_db;"
+  );
+  if (result && result.warningStatus > 0) {
+    const [warningResult, _] = await connection.query("SHOW WARNINGS");
+    displayWarningMessage(warningResult[0]);
+  } else {
+    console.log("Created Database!");
+  }
+}
+
+async function makeUsersTable(connection) {
+  const [result, _] = await connection.query(
+    // Users Table SQL Goes here
+    `
+    CREATE TABLE IF NOT EXISTS zenful_db.users (
+      id INT NOT NULL AUTO_INCREMENT,
+      username VARCHAR(128) NOT NULL,
+      email VARCHAR(255) NOT NULL,
+      password VARCHAR(255) NOT NULL,
+      active INT NOT NULL DEFAULT 1,
+      created DATETIME NOT NULL,
+      PRIMARY KEY (id),
+      UNIQUE INDEX id_UNIQUE (id ASC) VISIBLE,
+      UNIQUE INDEX username_UNIQUE (username ASC) VISIBLE)
+    ENGINE = InnoDB
+    `
+  );
+
+  if (result && result.warningStatus > 0) {
+    const [warningResult, _] = await connection.query("SHOW WARNINGS");
+    displayWarningMessage(warningResult[0]);
+  } else {
+    console.log("Created Users Table!");
+  }
+}
+
+async function makeJournalsTable(connection) {
+  const [result, _] = await connection.query(
+    // Journals Table SQL Goes here
+    `
+    CREATE TABLE IF NOT EXISTS zenful_db.journals (
+      id INT NOT NULL AUTO_INCREMENT,
+      title varchar(45) NOT NULL,
+      description longtext NOT NULL,
+      created datetime NOT NULL,
+      fk_authorId INT NOT NULL,
+      PRIMARY KEY (id),
+      UNIQUE INDEX id_UNIQUE (id ASC) VISIBLE,
+      INDEX post_author (fk_authorId ASC) VISIBLE,
+      CONSTRAINT post_author
+        FOREIGN KEY (fk_authorId)
+        REFERENCES zenful_db.users (id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE)
+    ENGINE = InnoDB
+    `
+  );
+  if (result && result.warningStatus > 0) {
+    const [warningResult, _] = await connection.query("SHOW WARNINGS");
+    displayWarningMessage(warningResult[0]);
+  } else {
+    console.log("Created Journals Table!");
+  }
+}
+
+async function makeMusicTable(connection) {
+  const [result, _] = await connection.query(
+    // To Do Lists Table SQL Goes here
+    ` 
+    CREATE TABLE IF NOT EXISTS zenful_db.music (
+      id INT NOT NULL AUTO_INCREMENT,
+      filename VARCHAR(50) NOT NULL,
+      title varchar(45) NOT NULL,
+      fk_uploaderId INT NOT NULL,
+      PRIMARY KEY (id),
+      UNIQUE INDEX id_UNIQUE (id ASC) VISIBLE,
+      INDEX upload_author (fk_uploaderId ASC) VISIBLE,
+      CONSTRAINT upload_author
+        FOREIGN KEY (fk_uploaderId)
+        REFERENCES zenful_db.users (id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE)
+    ENGINE = InnoDB
+    `
+  );
+  if (result && result.warningStatus > 0) {
+    const [warningResult, _] = await connection.query("SHOW WARNINGS");
+    displayWarningMessage(warningResult[0]);
+  } else {
+    console.log("Created Music Table!");
+  }
+}
+
+(async function main() {
+  let connection = null;
+  try {
+    connection = await getConnection();
+    await makeDatabase(connection); // make DB
+    //TODO make sure to change yourdbnamehere
+    await connection.query("USE zenful_db"); // set new DB to the current DB
+    await makeUsersTable(connection); // try to make user table
+    await makePostsTable(connection); // try to make posts table
+    await makeJournalsTable(connection); // try to make journals table
+    await makeMusicTable(connection); // try to make music table
+    connection.close();
+    return;
+  } catch (error) {
+    console.error(error);
+    if (connection != null) {
+      connection.close();
+    }
+  }
+})();
