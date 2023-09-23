@@ -2,8 +2,6 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11312291&assignment_repo_type=AssignmentRepo)
 # CSC648-848 Repository
 
-## Please do the following steps right after this repository is created.
-
 1. The following steps must be done by the team lead or the Github master. 
 
 2. Replace the username of this repository by your team number. Use the following format TNN where NN is the two digits of your team number. For instance, T03 for team 3. 
